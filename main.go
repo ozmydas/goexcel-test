@@ -100,10 +100,23 @@ func create(datax []cellData) {
 
 /******/
 
-// fungsi untuk merubah integer jadi alphabet
 var arr = [...]string{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-    "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB", "AC", "AD", "AE", "AF"}
+    "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
 
 func toCharStrArr(i int) string {
+    if i > 26 {
+        puluhan := i / 26
+        selisih := i % 26
+
+        if selisih == 0 {
+            puluhan = puluhan - 1
+            selisih = 26
+        }
+
+        depan := toCharStrArr(puluhan)
+        belakang := toCharStrArr(selisih)
+        return depan + belakang
+    }
+
     return arr[i-1]
 } // end func
