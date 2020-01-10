@@ -89,7 +89,7 @@ func create(datax []cellData) {
     f.SetActiveSheet(index)
 
     // simpan ke file excel baru sesuai tanggal
-    timeStr := time.Now().Format("2006-01-02_15:04:05")
+    timeStr := time.Now().Format("2006-01-02_15-04-05")
     err := f.SaveAs("./output/" + timeStr + ".xlsx")
     if err != nil {
         fmt.Println(err)
